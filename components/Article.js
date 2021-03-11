@@ -143,9 +143,6 @@ function articleMaker({
   articleDate.classList.add("date");
   expandButton.classList.add("expandButton");
 
-  // IDEAL BEHAVIOR: If "article-open" is on the expandbutton -> 3 articles are shown
-  //  If "article-open" is NOT on the expandbutton -> 3 articles are NOT shown
-
   articleTitle.textContent = title;
   articleDate.textContent = date;
   articleFirstParagraph.textContent = firstParagraph;
@@ -159,6 +156,14 @@ function articleMaker({
 
   return article;
 }
+
+data.push({
+  title: "test",
+  date: "oct 31, 2021",
+  firstParagraph: "test",
+  secondParagraph: "test",
+  thirdParagraph: "test",
+});
 
 data.forEach(function (dataObj) {
   const article = articleMaker(dataObj);
