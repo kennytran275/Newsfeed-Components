@@ -143,14 +143,18 @@ function articleMaker({
   articleDate.classList.add("date");
   expandButton.classList.add("expandButton");
 
+  // IDEAL BEHAVIOR: If "article-open" is on the expandbutton -> 3 articles are shown
+  //  If "article-open" is NOT on the expandbutton -> 3 articles are NOT shown
+
   articleTitle.textContent = title;
   articleDate.textContent = date;
   articleFirstParagraph.textContent = firstParagraph;
   articleSecondParagraph.textContent = secondParagraph;
   articleThirdParagraph.textContent = thirdParagraph;
+  expandButton.textContent = "+";
 
   expandButton.addEventListener("click", function (event) {
-    expandButton.classList.toggle("article-open");
+    article.classList.toggle("article-open");
   });
 
   return article;
@@ -160,3 +164,13 @@ data.forEach(function (dataObj) {
   const article = articleMaker(dataObj);
   articles.appendChild(article);
 });
+
+// console.log(
+//   articleMaker({
+//     title: "test",
+//     date: "test",
+//     firstParagraph: "test",
+//     secondParagraph: "test",
+//     thirdParagraph: "test",
+//   })
+// );

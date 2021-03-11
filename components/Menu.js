@@ -1,12 +1,12 @@
 // This is the data we will be using, study it but don't change anything, yet.
 
 let menuItems = [
-  'Students',
-  'Faculty',
+  "Students",
+  "Faculty",
   "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
+  "Tech Trends",
+  "Music",
+  "Log Out",
 ];
 
 /* 
@@ -31,3 +31,31 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
+
+function menuMaker(menuItems) {
+  const menu = document.createElement("div");
+  const ul = document.createElement("ul");
+
+  menuItems.forEach(function (item) {
+    let li = document.createElement("li");
+    ul.appendChild(li);
+    li.innerHTML += item;
+  });
+
+  menu.appendChild(ul);
+
+  menu.classList.add("menu");
+
+  const menuButton = document.querySelector(".menu-button");
+
+  menuButton.addEventListener("click", function (event) {
+    menu.classList.toggle("menu--open");
+  });
+
+  return menu;
+}
+
+const header = document.querySelector(".header");
+
+const menu = menuMaker(menuItems);
+header.appendChild(menu);
